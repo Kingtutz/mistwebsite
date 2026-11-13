@@ -3,7 +3,7 @@
 export const bar = {
     name: "Mist",
     tagline: "Cocktail Bar",
-    address: "Exempelgatan 1, Stockholm",
+    address: "Mäster Johansgatan, Malmö",
     email: "hej@mistbar.se",
     phone: "08 — 123 45 67",
     instagram: "https://www.instagram.com/",
@@ -29,7 +29,7 @@ export const event = {
 };
 
 export const intro =
-    "Mist is a cocktail bar for slow evenings and long conversations. Low light, good music and drinks made with care.";
+    "Stay for one. Leave aftermore. One drink turns into another, conversations linger and suddenly there's nowhere else you need to be.";
 
 export type MenuItem = { name: string; description?: string; price: string };
 export type MenuSection = { title: string; items: MenuItem[] };

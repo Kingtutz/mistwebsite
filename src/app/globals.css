@@ -7,19 +7,20 @@
    Any CSS colour works: #hex, rgb(), hsl(), oklch()...
    ============================================================ */
 :root {
-    --mist-bg: #102e2f;        /* main background (hero, menu, footer) — PMS 3292 */
-    --mist-bg-alt: #0a2223;    /* alternate section background (event) — darker 3292 */
-    --mist-text: #e6f6ec;      /* main text colour */
-    --mist-muted: #cdeedda6;   /* softer text: descriptions, small print — 337 50%, faded */
-    --mist-accent: #cdeedd;    /* highlights: active tab, prices, buttons — PMS 337 50% */
-    --mist-light: #a9dcbf;     /* soft shade inside the PMS 337 50% gradient */
-    --mist-line: #cdeedd33;    /* thin divider lines */
+    --mist-bg: #03160b; /* main background (hero, menu, footer) — PMS 3292 */
+    --mist-bg-alt: #0c2316; /* alternate section background (event) — darker 3292 */
+    --mist-bg-alt-2: #03160b; /* alternate section background (event) — darker 3292 */
+    --mist-text: #ffffff; /* main text colour */
+    --mist-muted: #e1e4e3a6; /* softer text: descriptions, small print — 337 50%, faded */
+    --mist-accent: #cdeedd; /* highlights: active tab, prices, buttons — PMS 337 50% */
+    --mist-light: #a9dcbf; /* soft shade inside the PMS 337 50% gradient */
+    --mist-line: #cdeedd33; /* thin divider lines */
 }
 
 /* ---- Landing smoke colour ----
    Timing and thickness are at the top of src/components/mist/MistIntro.tsx. */
 :root {
-    --mist-fog: #cdeedd;       /* PMS 337 50% */
+    --mist-fog: #cdeedd; /* PMS 337 50% */
 }
 
 @theme inline {
@@ -143,13 +144,13 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
-  html {
-    @apply font-sans;
+    html {
+        @apply font-sans;
     }
 }

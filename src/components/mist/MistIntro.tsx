@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 // Smoke that fills the screen on load, then curls upward and clears.
 // Tweak these to change the feel.
 const PUFF_COUNT = 140; // more = thicker smoke
-const DURATION = 4000; // ms until the smoke is fully gone
+const DURATION = 3000; // ms until the smoke is fully gone
 const HOLD = 0; // ms the smoke stays at full thickness before it starts clearing
 const START_THICKNESS = 0.3; // 0–1, how see-through it starts (lower = thinner, logo shows through)
 
@@ -56,22 +56,32 @@ const MistIntro = () => {
         const w = (canvas.width = window.innerWidth);
         const h = (canvas.height = window.innerHeight);
 
-        const color = getComputedStyle(document.documentElement).getPropertyValue("--mist-fog").trim() || "#dfe4ec";
-        const textures = [makePuffTexture(color), makePuffTexture(color), makePuffTexture(color)];
+        const color =
+            getComputedStyle(document.documentElement)
+                .getPropertyValue("--mist-fog")
+                .trim() || "#dfe4ec";
+        const textures = [
+            makePuffTexture(color),
+            makePuffTexture(color),
+            makePuffTexture(color),
+        ];
 
         const base = Math.max(w, h);
-        const puffs: (Puff & { tex: HTMLCanvasElement })[] = Array.from({ length: PUFF_COUNT }, () => ({
-            x: Math.random() * w,
-            y: Math.random() * h * 1.2,
-            size: base * (0.25 + Math.random() * 0.35),
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: -(0.3 + Math.random() * 0.9),
-            angle: Math.random() * Math.PI * 2,
-            spin: (Math.random() - 0.5) * 0.004,
-            wobble: Math.random() * Math.PI * 2,
-            alpha: 0.5 + Math.random() * 0.5,
-            tex: textures[Math.floor(Math.random() * textures.length)],
-        }));
+        const puffs: (Puff & { tex: HTMLCanvasElement })[] = Array.from(
+            { length: PUFF_COUNT },
+            () => ({
+                x: Math.random() * w,
+                y: Math.random() * h * 1.2,
+                size: base * (0.25 + Math.random() * 0.35),
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: -(0.3 + Math.random() * 0.9),
+                angle: Math.random() * Math.PI * 2,
+                spin: (Math.random() - 0.5) * 0.004,
+                wobble: Math.random() * Math.PI * 2,
+                alpha: 0.5 + Math.random() * 0.5,
+                tex: textures[Math.floor(Math.random() * textures.length)],
+            }),
+        );
 
         const start = performance.now();
         let last = start;
@@ -83,7 +93,10 @@ const MistIntro = () => {
             last = now;
 
             // Thick at first, then thins out smoothly to nothing.
-            const t = Math.min(Math.max((elapsed - HOLD) / (DURATION - HOLD), 0), 1);
+            const t = Math.min(
+                Math.max((elapsed - HOLD) / (DURATION - HOLD), 0),
+                1,
+            );
             const fade = START_THICKNESS * (1 - t * t * (3 - 2 * t));
 
             ctx.clearRect(0, 0, w, h);

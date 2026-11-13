@@ -6,8 +6,11 @@ import Intro from "@/components/mist/Intro";
 import Menu from "@/components/mist/Menu";
 import Footer from "@/components/mist/Footer";
 import MistIntro from "@/components/mist/MistIntro";
+import { getMenu } from "@/lib/menu-store";
 
-export default function Home() {
+export default async function Home() {
+    const menu = await getMenu();
+
     return (
         <>
             <MistIntro />
@@ -17,7 +20,7 @@ export default function Home() {
                 <EventSection />
                 <ImageBand />
                 <Intro />
-                <Menu />
+                <Menu menu={menu} />
             </main>
             <Footer />
         </>

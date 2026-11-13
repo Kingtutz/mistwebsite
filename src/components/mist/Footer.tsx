@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { bar } from "@/lib/mist";
 
 const Footer = () => {
@@ -5,11 +6,22 @@ const Footer = () => {
         <footer
             id="contact"
             className="scroll-mt-16 border-t border-mist-line bg-mist-bg px-4 py-24 text-center text-mist-text">
-            <h2 className="font-display text-4xl uppercase tracking-[0.3em]">{bar.name}</h2>
+            <h2 className="flex justify-center">
+                {/* brightness-0 + invert renders the gold logo white, matching the hero */}
+                <Image
+                    src="/mist-logo-gold.svg"
+                    alt={bar.name}
+                    width={116}
+                    height={526}
+                    className="h-28 w-auto brightness-0 invert"
+                />
+            </h2>
 
             <div className="mt-10 space-y-1 text-mist-muted">
                 <p>{bar.address}</p>
-                <a href={`mailto:${bar.email}`} className="block hover:text-mist-accent">
+                <a
+                    href={`mailto:${bar.email}`}
+                    className="block hover:text-mist-accent">
                     {bar.email}
                 </a>
                 <p>{bar.phone}</p>
@@ -25,7 +37,11 @@ const Footer = () => {
             </div>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm uppercase tracking-widest">
-                <a href={bar.instagram} target="_blank" rel="noreferrer" className="hover:text-mist-accent">
+                <a
+                    href={bar.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-mist-accent">
                     Instagram
                 </a>
                 <a
