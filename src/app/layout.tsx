@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,7 +29,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <html
             lang="sv"
             className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} h-full antialiased scroll-smooth`}>
-            <body className="min-h-full flex flex-col">{children}</body>
+            <body className="min-h-full flex flex-col">
+                {children}
+                <Script
+                    src="https://app.bokabord.se/widget-popup/widget.min.js"
+                    strategy="afterInteractive"
+                />
+            </body>
         </html>
     );
 }

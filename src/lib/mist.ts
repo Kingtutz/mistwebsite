@@ -3,10 +3,10 @@
 export const bar = {
     name: "Mist",
     tagline: "Cocktail Bar",
-    address: "Mäster Johansgatan, Malmö",
+    address: "Mäster Johansgatan 4, Malmö",
     email: "hej@mistbar.se",
     phone: "08 — 123 45 67",
-    instagram: "https://www.instagram.com/",
+    instagram: "https://www.instagram.com/mistcocktailbar",
     bookingUrl: "#contact",
     hours: [
         { days: "Wed — Thu", time: "17:00 — 00:00" },

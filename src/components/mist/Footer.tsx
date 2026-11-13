@@ -41,12 +41,12 @@ const Footer = () => {
                     href={bar.instagram}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-mist-accent">
+                    className="border border-mist-accent px-6 py-3 text-mist-accent hover:bg-mist-accent cursor-pointer hover:text-mist-bg">
                     Instagram
                 </a>
                 <a
-                    href={`mailto:${bar.email}?subject=Booking`}
-                    className="border border-mist-accent px-6 py-3 text-mist-accent hover:bg-mist-accent hover:text-mist-bg">
+                    data-hash="aa5bfd25c6731e55ddc87b405d98883c"
+                    className="waiteraid-widget border border-mist-accent px-6 py-3 text-mist-accent hover:bg-mist-accent cursor-pointer hover:text-mist-bg">
                     Book a table
                 </a>
             </div>
