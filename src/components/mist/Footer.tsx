@@ -18,7 +18,13 @@ const Footer = () => {
             </h2>
 
             <div className="mt-10 space-y-1 text-mist-muted">
-                <p>{bar.address}</p>
+                <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(bar.address)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block hover:text-mist-accent">
+                    {bar.address}
+                </a>
                 <a
                     href={`mailto:${bar.email}`}
                     className="block hover:text-mist-accent">
